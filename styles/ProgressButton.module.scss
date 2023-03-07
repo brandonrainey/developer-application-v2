@@ -1,0 +1,45 @@
+@mixin buttonStyle {
+  height: 40px;
+  width: 100px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: 'Bold', sans-serif;
+}
+
+.main {
+  
+  margin-top: auto;
+  display: flex;
+  width: 100%;
+}
+
+.next {
+  @include buttonStyle();
+
+  background-color: hsl(213, 96%, 18%);
+  color: white;
+
+  margin-left: auto;
+
+  &:hover {
+    background-color: hsl(243, 100%, 62%);
+  }
+}
+
+.back {
+  @include buttonStyle();
+
+  background-color: white;
+  color: black;
+  opacity: 50%;
+  margin-right: auto;
+
+  &:hover {
+    opacity: 100%;
+  }
+}
+
+.hidden {
+    display: none;
+}

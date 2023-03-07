@@ -1,0 +1,63 @@
+.header {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+
+    h1 {
+        font-family: 'Medium', sans-serif;
+        letter-spacing: 2px;
+    }
+
+    p {
+        opacity: 50%;
+        font-weight: 700;
+        letter-spacing: 1px;
+    }
+}
+
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 60px;
+
+    div {
+        display: flex;
+        flex-direction: column;
+    }
+
+    label {
+        font-family: 'Medium', sans-serif;
+        
+    }
+
+    form {
+        margin-top: 8px;
+    }
+
+    input {
+        width: 400px;
+        height: 50px;
+        border-radius: 10px;
+        border-width: 1px;
+        border-color: rgba(0, 0, 0, 0.499);
+        padding-left: 10px;
+        font-size: 16px;
+        font-family: 'Medium', sans-serif;
+        
+        &:hover {
+            cursor: pointer;
+        }
+
+        &::placeholder {
+            opacity: 0.6;
+        }
+
+        &:focus {
+            outline: none;
+            border: 1px solid purple;
+            
+        }
+    }
+}
