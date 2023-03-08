@@ -3,6 +3,7 @@ import styles from '../styles/Forms.module.scss'
 import PersonalInfo from './PersonalInfo'
 import ProgressButton from './ProgressButton'
 import Resume from './Resume'
+import Skills from './Skills'
 
 type FormProps = {
   progress: number
@@ -21,7 +22,7 @@ export default function Forms({ progress, setProgress }: FormProps) {
       componentToRender = <Resume />;
       break;
     case 3:
-      componentToRender = <PersonalInfo />;
+      componentToRender = <Skills />;
       break;
     case 4:
       componentToRender = <PersonalInfo />;
