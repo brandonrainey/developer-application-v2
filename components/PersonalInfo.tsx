@@ -1,7 +1,25 @@
 import React from 'react'
 import styles from '../styles/PersonalInfo.module.scss'
 
-export default function PersonalInfo() {
+interface ApplicantInfo {
+  name: string;
+  resume: string;
+  skills: {
+    name: string;
+    icon: string;
+  };
+}
+
+type PersonalInfoProps = {
+  applicantInfo: {
+    name: string,
+    resume: string,
+    skills: {name: string, icon: string}[]
+  }
+  setApplicantInfo: React.Dispatch<React.SetStateAction<ApplicantInfo>>
+}
+
+export default function PersonalInfo({ applicantInfo, setApplicantInfo}: PersonalInfoProps) {
   return (
     <div>
       <div className={styles.header}>

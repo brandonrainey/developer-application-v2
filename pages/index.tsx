@@ -9,6 +9,12 @@ import ProgressButton from '@/components/ProgressButton'
 export default function Home() {
   const [progress, setProgress] = useState(1)
 
+  const [applicantInfo, setApplicantInfo] = useState({
+    name: '',
+    resume: '',
+    skills: {name: '', icon: ''},
+  })
+
   return (
     <div className={styles.main}>
       <Head>
@@ -19,7 +25,7 @@ export default function Home() {
       </Head>
       <main className={styles.container}>
         <Sidebar progress={progress} />
-        <Forms progress={progress} setProgress={setProgress} />
+        <Forms progress={progress} setProgress={setProgress} applicantInfo={applicantInfo} setApplicantInfo={setApplicantInfo}/>
       </main>
     </div>
   )

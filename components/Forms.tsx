@@ -5,18 +5,33 @@ import ProgressButton from './ProgressButton'
 import Resume from './Resume'
 import Skills from './Skills'
 
+interface ApplicantInfo {
+  name: string;
+  resume: string;
+  skills: {
+    name: string,
+    icon: string
+  };
+}
+
 type FormProps = {
   progress: number
   setProgress: React.Dispatch<React.SetStateAction<number>>
+  applicantInfo: {
+    name: string,
+    resume: string,
+    skills: {name: string, icon: string}[]
+  }
+  setApplicantInfo: React.Dispatch<React.SetStateAction<ApplicantInfo>>
 }
 
-export default function Forms({ progress, setProgress }: FormProps) {
+export default function Forms({ progress, setProgress, applicantInfo, setApplicantInfo }: FormProps) {
 
   let componentToRender;
 
   switch (progress) {
     case 1:
-      componentToRender = <PersonalInfo />;
+      componentToRender = <PersonalInfo applicantInfo={applicantInfo} setApplicantInfo={setApplicantInfo}/>;
       break;
     case 2:
       componentToRender = <Resume />;
@@ -35,7 +50,7 @@ export default function Forms({ progress, setProgress }: FormProps) {
     <div className={styles.main}>
       <div className={styles.container}>
         {componentToRender}
-        <ProgressButton progress={progress} setProgress={setProgress} />
+        <ProgressButton progress={progress} setProgress={setProgress} applicantInfo={applicantInfo} setApplicantInfo={setApplicantInfo}/>
       </div>
     </div>
   )
