@@ -25,12 +25,17 @@ const steps = [
   },
 ]
 
+const isWindowContext = typeof window !== "undefined"
+
 export default function Sidebar({ progress }: SidebarProps) {
+
+  const available = isWindowContext && window.innerWidth
+
   return (
     <div className={styles.main}>
       <div className={styles.container}>
         <Image
-          src={'/bg-sidebar-desktop.svg'}
+          src={`${available && window?.innerWidth >= 830 ? '/bg-sidebar-desktop.svg' : '/bg-sidebar-mobile.svg'}`}
           alt="desktop sidebar image"
           fill
           className={styles.sidebar}
@@ -38,7 +43,7 @@ export default function Sidebar({ progress }: SidebarProps) {
 
         <div className={styles.nav}>
           {steps.map((item, index) => (
-            <div className={styles.stepsContainer}>
+            <div className={styles.stepsContainer} key={index}>
               <div
                 className={
                   index + 1 == progress

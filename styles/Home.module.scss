@@ -8,9 +8,22 @@
 
 .container {
   display: flex;
-  
+
   height: 800px;
   width: 66%;
   border-radius: 15px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+  @media (max-width: 1140px) {
+    width: 90%;
+  }
+}
+
+@media (max-width: 830px) {
+  .container {
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    border-radius: none;
+  }
 }

@@ -1,18 +1,18 @@
 import { useState } from 'react'
 import Head from 'next/head'
-import Image from 'next/image'
 import styles from '@/styles/Home.module.scss'
 import Sidebar from '@/components/Sidebar'
 import Forms from '@/components/Forms'
-import ProgressButton from '@/components/ProgressButton'
 
 export default function Home() {
   const [progress, setProgress] = useState(1)
 
   const [applicantInfo, setApplicantInfo] = useState({
     name: '',
+    email: '',
+    phone: '',
     resume: '',
-    skills: {name: '', icon: ''},
+    skills: [],
   })
 
   return (
@@ -25,7 +25,12 @@ export default function Home() {
       </Head>
       <main className={styles.container}>
         <Sidebar progress={progress} />
-        <Forms progress={progress} setProgress={setProgress} applicantInfo={applicantInfo} setApplicantInfo={setApplicantInfo}/>
+        <Forms
+          progress={progress}
+          setProgress={setProgress}
+          applicantInfo={applicantInfo}
+          setApplicantInfo={setApplicantInfo}
+        />
       </main>
     </div>
   )

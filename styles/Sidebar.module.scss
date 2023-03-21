@@ -23,12 +23,24 @@
   flex-direction: column;
   gap: 40px;
   padding-top: 50px;
+
+  @media (max-width: 830px) {
+    flex-direction: row;
+    justify-content: center;
+    justify-content: space-around;
+    gap: 0px;
+  }
 }
 
 .sidebar {
   object-fit: cover;
   border-radius: 25px;
   padding: 15px;
+
+  @media (max-width: 830px) {
+    padding: 0px;
+    border-radius: 0px;
+  }
 }
 
 .stepsContainer {
@@ -47,13 +59,17 @@
   border-radius: 50%;
   color: white;
 
-    span {
-      font-weight: 600;
-    }
+  span {
+    font-weight: 600;
+  }
 }
 
 .stepItem {
   color: white;
+
+  @media (max-width: 830px) {
+    display: none;
+  }
 }
 
 .stepDescription {
