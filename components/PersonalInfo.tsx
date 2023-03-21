@@ -9,7 +9,7 @@ interface ApplicantInfo {
   skills: {
     name: string
     icon: string
-  }[];
+  }[]
 }
 
 type PersonalInfoProps = {
@@ -18,13 +18,15 @@ type PersonalInfoProps = {
     email: string
     phone: string
     resume: string
-    skills: {name: string, icon: string}[]
+    skills: { name: string; icon: string }[]
   }
   setApplicantInfo: React.Dispatch<React.SetStateAction<ApplicantInfo>>
 }
 
-export default function PersonalInfo({ applicantInfo, setApplicantInfo}: PersonalInfoProps) {
-
+export default function PersonalInfo({
+  applicantInfo,
+  setApplicantInfo,
+}: PersonalInfoProps) {
   const [formattedNumber, setFormattedNumber] = useState('')
 
   function handleNameChange(event: React.ChangeEvent<HTMLInputElement>) {
@@ -48,16 +50,8 @@ export default function PersonalInfo({ applicantInfo, setApplicantInfo}: Persona
 
     copyObj.phone = event.target.value
 
-    
-    
-    
-
     setApplicantInfo(copyObj)
-
-    
   }
-
-  
 
   return (
     <div className={styles.main}>
@@ -69,21 +63,30 @@ export default function PersonalInfo({ applicantInfo, setApplicantInfo}: Persona
         <div>
           <label>Name</label>
           <form>
-            <input placeholder="e.g. Stephen King" onChange={handleNameChange} ></input>
+            <input
+              placeholder="e.g. Stephen King"
+              onChange={handleNameChange}
+            ></input>
           </form>
         </div>
 
         <div>
           <label>Email</label>
           <form>
-            <input placeholder="e.g. stephenking@lorem.com" onChange={handleEmailChange}></input>
+            <input
+              placeholder="e.g. stephenking@lorem.com"
+              onChange={handleEmailChange}
+            ></input>
           </form>
         </div>
 
         <div>
           <label>Phone Number</label>
           <form>
-            <input placeholder="+1 234 567 890" onChange={handlePhoneChange}></input>
+            <input
+              placeholder="+1 234 567 890"
+              onChange={handlePhoneChange}
+            ></input>
           </form>
         </div>
       </div>
