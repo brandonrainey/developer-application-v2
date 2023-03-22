@@ -55,6 +55,10 @@
     rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 }
 
+.hidden {
+    display: hidden;
+}
+
 @media (max-width: 830px) {
   .main {
     position: absolute;
@@ -66,7 +70,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: 80%;
-    height: 90%;
+    height: 100%;
 
     .header {
       h1 {

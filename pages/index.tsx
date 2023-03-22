@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Head from 'next/head'
 import styles from '@/styles/Home.module.scss'
 import Sidebar from '@/components/Sidebar'
@@ -15,6 +15,14 @@ export default function Home() {
     skills: [],
   })
 
+  const [isEmpty, setIsEmpty] = useState(applicantInfo.name == '' || applicantInfo.email == '' || applicantInfo.phone == '') 
+
+  useEffect(() => {
+    setIsEmpty(applicantInfo.name == '' || applicantInfo.email == '' || applicantInfo.phone == '')
+  },[applicantInfo])
+
+  
+
   return (
     <div className={styles.main}>
       <Head>
@@ -30,6 +38,7 @@ export default function Home() {
           setProgress={setProgress}
           applicantInfo={applicantInfo}
           setApplicantInfo={setApplicantInfo}
+          isEmpty={isEmpty}
         />
       </main>
     </div>

@@ -19,7 +19,7 @@ interface ApplicantInfoType {
   }[]
 }
 
-type FormProps = {
+interface FormProps {
   progress: number
   setProgress: React.Dispatch<React.SetStateAction<number>>
   applicantInfo: {
@@ -30,6 +30,7 @@ type FormProps = {
     skills: { name: string; icon: string; key: number }[]
   }
   setApplicantInfo: React.Dispatch<React.SetStateAction<any>>
+  isEmpty: boolean
   //try to find correct set state type
 }
 
@@ -38,6 +39,7 @@ export default function Forms({
   setProgress,
   applicantInfo,
   setApplicantInfo,
+  isEmpty,
 }: FormProps) {
   let componentToRender
 
@@ -51,7 +53,12 @@ export default function Forms({
       )
       break
     case 2:
-      componentToRender = <Resume />
+      componentToRender = (
+        <Resume
+          applicantInfo={applicantInfo}
+          setApplicantInfo={setApplicantInfo}
+        />
+      )
       break
     case 3:
       componentToRender = (
@@ -81,6 +88,7 @@ export default function Forms({
             setProgress={setProgress}
             applicantInfo={applicantInfo}
             setApplicantInfo={setApplicantInfo}
+            isEmpty={isEmpty}
           />
         ) : null}
       </div>

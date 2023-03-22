@@ -2,7 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import styles from '../styles/Sidebar.module.scss'
 
-type SidebarProps = {
+interface SidebarProps {
   progress: number
 }
 
@@ -25,17 +25,20 @@ const steps = [
   },
 ]
 
-const isWindowContext = typeof window !== "undefined"
+const isWindowContext = typeof window !== 'undefined'
 
 export default function Sidebar({ progress }: SidebarProps) {
-
   const available = isWindowContext && window.innerWidth
 
   return (
     <div className={styles.main}>
       <div className={styles.container}>
         <Image
-          src={`${available && window?.innerWidth >= 830 ? '/bg-sidebar-desktop.svg' : '/bg-sidebar-mobile.svg'}`}
+          src={`${
+            available && window?.innerWidth >= 830
+              ? '/bg-sidebar-desktop.svg'
+              : '/bg-sidebar-mobile.svg'
+          }`}
           alt="desktop sidebar image"
           fill
           className={styles.sidebar}

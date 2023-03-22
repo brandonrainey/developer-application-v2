@@ -12,7 +12,7 @@ interface ApplicantInfo {
   }[]
 }
 
-type PersonalInfoProps = {
+interface PersonalInfoProps {
   applicantInfo: {
     name: string
     email: string
@@ -27,31 +27,38 @@ export default function PersonalInfo({
   applicantInfo,
   setApplicantInfo,
 }: PersonalInfoProps) {
-  const [formattedNumber, setFormattedNumber] = useState('')
+
+
+  
 
   function handleNameChange(event: React.ChangeEvent<HTMLInputElement>) {
-    const copyObj = applicantInfo
+    const updatedApplicantInfo = {
+    ...applicantInfo, 
+    name: event.target.value 
+  }
 
-    copyObj.name = event.target.value
-
-    setApplicantInfo(copyObj)
+    setApplicantInfo(updatedApplicantInfo)
   }
 
   function handleEmailChange(event: React.ChangeEvent<HTMLInputElement>) {
-    const copyObj = applicantInfo
+    const updatedApplicantInfo = {
+      ...applicantInfo, 
+      email: event.target.value 
+    }
 
-    copyObj.email = event.target.value
-
-    setApplicantInfo(copyObj)
+    setApplicantInfo(updatedApplicantInfo)
   }
 
   function handlePhoneChange(event: React.ChangeEvent<HTMLInputElement>) {
-    const copyObj = applicantInfo
+    const updatedApplicantInfo = {
+      ...applicantInfo, 
+      phone: event.target.value 
+    }
 
-    copyObj.phone = event.target.value
-
-    setApplicantInfo(copyObj)
+    setApplicantInfo(updatedApplicantInfo)
   }
+
+  console.log(applicantInfo)
 
   return (
     <div className={styles.main}>
@@ -66,6 +73,7 @@ export default function PersonalInfo({
             <input
               placeholder="e.g. Stephen King"
               onChange={handleNameChange}
+              value={applicantInfo.name}
             ></input>
           </form>
         </div>
@@ -76,6 +84,7 @@ export default function PersonalInfo({
             <input
               placeholder="e.g. stephenking@lorem.com"
               onChange={handleEmailChange}
+              value={applicantInfo.email}
             ></input>
           </form>
         </div>
@@ -86,6 +95,7 @@ export default function PersonalInfo({
             <input
               placeholder="+1 234 567 890"
               onChange={handlePhoneChange}
+              value={applicantInfo.phone}
             ></input>
           </form>
         </div>

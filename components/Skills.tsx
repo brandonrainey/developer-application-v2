@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styles from '../styles/Skills.module.scss'
 
 interface ApplicantInfoType {
@@ -14,7 +14,7 @@ interface ApplicantInfoType {
   }[]
 }
 
-type SkillProps = {
+interface SkillProps {
   applicantInfo: {
     name: string
     resume: string
@@ -89,11 +89,12 @@ export default function Skills({
         if (item.key == index) {
           found = true
           copyInfo.skills.splice(localIndex, 1)
+
           return
         }
       })
 
-      if (found == false || copyInfo.skills.length == 0) {
+      if (found == false) {
         copyInfo.skills.push({
           name: copyArr[index].name,
           icon: copyArr[index].icon,
@@ -106,10 +107,20 @@ export default function Skills({
       setSkillList(copyArr)
 
       setApplicantInfo(copyInfo)
-
-      console.log(applicantInfo)
     }
   }
+
+  useEffect(() => {
+    const copySkills = [...skillList]
+
+    applicantInfo.skills.map((item) => {
+      copySkills.map((skill, index) => {
+        item.name == skill.name ? (copySkills[index].checked = true) : null
+      })
+    })
+
+    setSkillList(copySkills)
+  }, [])
 
   return (
     <div className={styles.main}>
@@ -118,7 +129,7 @@ export default function Skills({
         {skillList.map((item, index) => (
           <label
             key={index}
-            style={{ outline: `${item.checked ? '2px solid blue' : ''}` }}
+            className={`${item.checked ? styles.checked : ''}`}
           >
             <Image src={item.icon} width={80} height={80} alt="skill icon" />
             <p>{item.name}</p>

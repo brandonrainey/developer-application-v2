@@ -2,12 +2,38 @@ import React, { useState } from 'react'
 import styles from '../styles/Resume.module.scss'
 import Image from 'next/image'
 
-export default function Resume() {
-  const [resumeName, setResumeName] = useState('')
+interface ApplicantInfo {
+  name: string
+  email: string
+  phone: string
+  resume: string
+  skills: {
+    name: string
+    icon: string
+  }[]
+}
 
+interface ResumeProps {
+  applicantInfo: {
+    name: string
+    email: string
+    phone: string
+    resume: string
+    skills: { name: string; icon: string }[]
+  }
+  setApplicantInfo: React.Dispatch<React.SetStateAction<ApplicantInfo>>
+}
+
+export default function Resume({
+  applicantInfo,
+  setApplicantInfo,
+}: ResumeProps) {
   function handleChange(e: any) {
-    console.log(e)
-    setResumeName(e.target.files[0].name)
+    const copyInfo = applicantInfo
+
+    copyInfo.resume = e.target.files[0].name
+
+    setApplicantInfo(copyInfo)
   }
 
   return (
@@ -27,7 +53,7 @@ export default function Resume() {
         </label>
         <div className={styles.nameContainer}>
           <p data-testid="resume name">
-            {resumeName != '' ? (
+            {applicantInfo.resume != '' ? (
               <Image
                 src="/checkmark.webp"
                 width={30}
@@ -37,7 +63,7 @@ export default function Resume() {
             ) : (
               ''
             )}
-            {resumeName}
+            {applicantInfo.resume}
           </p>
         </div>
       </form>

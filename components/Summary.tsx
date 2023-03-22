@@ -27,7 +27,9 @@ export default function Summary({ applicantInfo: data }: SummaryProps) {
 
       <div className={styles.skillsContainer}>
         {data.skills.map((item, index) => (
-          <div className={styles.skill} key={index}>{item.name}</div>
+          <div className={styles.skill} key={index}>
+            {item.name}
+          </div>
         ))}
       </div>
     </div>

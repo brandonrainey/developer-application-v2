@@ -12,7 +12,7 @@ interface ApplicantInfo {
   }[]
 }
 
-type ButtonProps = {
+interface ButtonProps {
   progress: number
   setProgress: React.Dispatch<React.SetStateAction<number>>
   applicantInfo: {
@@ -23,9 +23,13 @@ type ButtonProps = {
     skills: { name: string; icon: string }[]
   }
   setApplicantInfo: React.Dispatch<React.SetStateAction<ApplicantInfo>>
+  isEmpty: boolean
 }
 
-export default function ProgressButton({ progress, setProgress }: ButtonProps) {
+export default function ProgressButton({
+  progress,
+  setProgress,
+}: ButtonProps) {
   function handleNextClick() {
     setProgress(progress + 1)
   }
@@ -43,7 +47,7 @@ export default function ProgressButton({ progress, setProgress }: ButtonProps) {
         Go Back
       </button>
 
-      <button className={styles.next} onClick={handleNextClick}>
+      <button className={`${styles.next}`} onClick={handleNextClick}>
         {progress == 4 ? 'Finish' : 'Next Step'}
       </button>
     </div>

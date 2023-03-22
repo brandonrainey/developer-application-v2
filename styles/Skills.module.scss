@@ -39,6 +39,10 @@
   display: none;
 }
 
+.checked {
+  outline: 2px solid blue;
+}
+
 @media (max-width: 830px) {
   .main {
     position: absolute;
@@ -50,7 +54,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: 80%;
-    height: 90%;
+    height: 100%;
 
     .wrapper {
       justify-content: center;
