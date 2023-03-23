@@ -73,4 +73,20 @@
     font-family: 'Medium', sans-serif;
     letter-spacing: 2px;
   }
+
+  .checked {
+    position: relative;
+    outline: none;
+  }
+
+  .checked::before {
+    content: "";
+    position: absolute;
+    top: -2px; // border: 2px
+    right: -2px; // border: 2px
+    bottom: -2px; // border: 2px
+    left: -2px; // border: 2px 
+    border: 2px solid blue;
+    border-radius: 15px; 
+  }
 }

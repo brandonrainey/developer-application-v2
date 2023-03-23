@@ -26,6 +26,12 @@
   }
 }
 
+.disabled {
+  &:hover {
+    background-color: rgb(188, 187, 187)
+  }
+}
+
 .back {
   @include buttonStyle();
 

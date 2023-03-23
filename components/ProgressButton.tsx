@@ -29,6 +29,7 @@ interface ButtonProps {
 export default function ProgressButton({
   progress,
   setProgress,
+  applicantInfo
 }: ButtonProps) {
   function handleNextClick() {
     setProgress(progress + 1)
@@ -37,6 +38,8 @@ export default function ProgressButton({
   function handleBackClick() {
     setProgress(progress - 1)
   }
+
+  const isEmpty = applicantInfo.name == '' || applicantInfo.email == '' || applicantInfo.phone == ''
 
   return (
     <div className={styles.main}>
@@ -47,7 +50,7 @@ export default function ProgressButton({
         Go Back
       </button>
 
-      <button className={`${styles.next}`} onClick={handleNextClick}>
+      <button className={`${styles.next} ${progress == 4 ? isEmpty ? styles.disabled : null : null}`} onClick={handleNextClick} disabled={progress == 4 ? isEmpty : false}>
         {progress == 4 ? 'Finish' : 'Next Step'}
       </button>
     </div>

@@ -16,6 +16,8 @@
 
   @media (max-width: 1140px) {
     width: 90%;
+    
+
   }
 }
 
@@ -24,6 +26,10 @@
     flex-direction: column;
     height: 100%;
     width: 100%;
-    border-radius: none;
+    border-radius: 0px;
+  }
+
+  .main {
+    height: 100vh;
   }
 }
