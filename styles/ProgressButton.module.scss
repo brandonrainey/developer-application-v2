@@ -52,6 +52,18 @@
 @media (max-width: 830px) {
   .main {
     padding-bottom: 10px;
+    
   }
   
+  .next {
+    position: fixed;
+    bottom: 20px;
+    right: 60px;
+  }
+
+  .back {
+    position: fixed;
+    bottom: 20px;
+    left: 60px;
+  }
 }
