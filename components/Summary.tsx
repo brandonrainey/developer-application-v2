@@ -12,6 +12,9 @@ interface SummaryProps {
 }
 
 export default function Summary({ applicantInfo: data }: SummaryProps) {
+
+  const isEmpty = data.name == '' || data.email == '' || data.phone == ''
+
   return (
     <div className={styles.main}>
       <div className={styles.header}>
@@ -19,10 +22,10 @@ export default function Summary({ applicantInfo: data }: SummaryProps) {
         <p>Double-check everything looks OK before confirming</p>
       </div>
 
-      <div className={styles.infoContainer}>
-        <p>Name: {data.name}</p>
-        <p>Email: {data.email}</p>
-        <p>Phone: {data.phone}</p>
+      <div className={`${styles.infoContainer} `}>
+        <p>Name: <span className={`${isEmpty ? styles.empty : null}`}>{data.name  ? data.name : 'Missing name!'}</span></p>
+        <p>Email: <span className={`${isEmpty ? styles.empty : null}`}>{data.email ? data.email : 'Missing email!'}</span></p>
+        <p>Phone: <span className={`${isEmpty ? styles.empty : null}`}>{data.phone ? data.phone : 'Missing phone number!'}</span> </p>
       </div>
 
       <div className={styles.skillsContainer}>

@@ -72,6 +72,10 @@
     margin-bottom: 20px;
     font-family: 'Medium', sans-serif;
     letter-spacing: 2px;
+
+    @media (max-width: 830px) {
+      letter-spacing: normal;
+    }
   }
 
   .checked {
