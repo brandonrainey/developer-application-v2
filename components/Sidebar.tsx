@@ -42,6 +42,7 @@ export default function Sidebar({ progress }: SidebarProps) {
           alt="desktop sidebar image"
           fill
           className={styles.sidebar}
+          priority={true}
         />
 
         <div className={styles.nav}>

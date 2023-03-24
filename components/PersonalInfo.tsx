@@ -58,7 +58,7 @@ export default function PersonalInfo({
     setApplicantInfo(updatedApplicantInfo)
   }
 
-  console.log(applicantInfo)
+
 
   return (
     <div className={styles.main}>
