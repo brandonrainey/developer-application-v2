@@ -3,7 +3,7 @@
 }
 
 html {
-  height: -webkit-fill-available;
+  
 }
 
 * {
@@ -15,9 +15,7 @@ html {
 body {
   overflow: hidden;
   font-family: 'Regular', sans-serif;
-  min-height: 100vh;
-  /* mobile viewport bug fix */
-  min-height: -webkit-fill-available;
+  
 }
 
 @font-face {

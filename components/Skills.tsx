@@ -131,7 +131,7 @@ export default function Skills({
             key={index}
             className={`${item.checked ? styles.checked : ''}`}
           >
-            <Image src={item.icon} width={80} height={80} alt="skill icon" />
+            <Image src={item.icon} width={80} height={80} alt="skill icon" priority={true}/>
             <p>{item.name}</p>
             <input
               type="checkbox"
