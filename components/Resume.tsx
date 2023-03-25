@@ -28,14 +28,20 @@ export default function Resume({
   applicantInfo,
   setApplicantInfo,
 }: ResumeProps) {
+
+  const [resumeLocal, setResumeLocal] = useState('')
+
   function handleChange(e: any) {
     const copyInfo = applicantInfo
 
     copyInfo.resume = e.target.files[0].name
 
+    setResumeLocal(e.target.files[0].name)
+
     setApplicantInfo(copyInfo)
   }
 
+  
   return (
     <div className={styles.main}>
       <form action="" className={styles.uploadContainer}>
@@ -63,7 +69,7 @@ export default function Resume({
             ) : (
               ''
             )}
-            {applicantInfo.resume}
+            {resumeLocal !== '' ? resumeLocal : applicantInfo.resume}
           </p>
         </div>
       </form>

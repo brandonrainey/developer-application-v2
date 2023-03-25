@@ -25,6 +25,8 @@ interface SkillProps {
   setApplicantInfo: React.Dispatch<React.SetStateAction<ApplicantInfoType>>
 }
 
+
+
 export default function Skills({
   applicantInfo,
   setApplicantInfo,
@@ -137,6 +139,7 @@ export default function Skills({
               type="checkbox"
               checked={item.checked}
               onChange={createHandleChange(index)}
+              data-testid={`checkbox-${index}`}
             />
           </label>
         ))}
@@ -144,3 +147,5 @@ export default function Skills({
     </div>
   )
 }
+
+
