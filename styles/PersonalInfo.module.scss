@@ -1,17 +1,13 @@
+$header-font-family: 'Medium', sans-serif;
+
 .header {
   display: flex;
   flex-direction: column;
   gap: 8px;
 
   h1 {
-    font-family: 'Medium', sans-serif;
+    font-family: $header-font-family;
     letter-spacing: 2px;
-    
-
-    @media (max-width: 830px) {
-      letter-spacing: normal;
-      text-align: center;
-    }
   }
 
   p {
@@ -33,7 +29,7 @@
   }
 
   label {
-    font-family: 'Medium', sans-serif;
+    font-family: $header-font-family;
   }
 
   form {
@@ -48,7 +44,7 @@
     border-color: rgba(0, 0, 0, 0.499);
     padding-left: 10px;
     font-size: 16px;
-    font-family: 'Medium', sans-serif;
+    font-family: $header-font-family;
 
     &:hover {
       cursor: pointer;
@@ -62,14 +58,25 @@
       outline: none;
       border: 1px solid purple;
     }
-
-    @media (max-width: 830px) {
-      width: 90%;
-    }
   }
 }
 
 @media (max-width: 830px) {
+  .header {
+    h1 {
+      letter-spacing: normal;
+      text-align: center;
+    }
+  }
+
+  .formContainer {
+    margin-top: 30px;
+
+    input {
+      width: 90%;
+    }
+  }
+
   .main {
     position: absolute;
     padding: 20px;
@@ -81,9 +88,5 @@
     transform: translate(-50%, -50%);
     width: 80%;
     height: 110%;
-  }
-
-  .formContainer {
-    margin-top: 30px;
   }
 }
